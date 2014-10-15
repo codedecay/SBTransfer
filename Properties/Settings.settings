@@ -1,0 +1,106 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SBTransfer.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="COLLECTION_ID" Type="System.String" Scope="User">
+      <Value Profile="(Default)">SAPilotTest</Value>
+    </Setting>
+    <Setting Name="CLIENT_TOPIC_QUEUE" Type="System.String" Scope="User">
+      <Value Profile="(Default)">topic://sa_test_client</Value>
+    </Setting>
+    <Setting Name="CLIENT_ID" Type="System.String" Scope="User">
+      <Value Profile="(Default)">SATestClient1</Value>
+    </Setting>
+    <Setting Name="PILLAR_QUEUE" Type="System.String" Scope="User">
+      <Value Profile="(Default)">queue://sa_pillar_queue</Value>
+    </Setting>
+    <Setting Name="XSD_MIN_VERSION" Type="System.String" Scope="User">
+      <Value Profile="(Default)">24</Value>
+    </Setting>
+    <Setting Name="XSD_VERSION" Type="System.String" Scope="User">
+      <Value Profile="(Default)">24</Value>
+    </Setting>
+    <Setting Name="COLLECTION_SETTINGS_XSD_FILE_PATH" Type="System.String" Scope="User">
+      <Value Profile="(Default)">D:\CollectionSettings.xml</Value>
+    </Setting>
+    <Setting Name="DEFAULT_CHECKSUM_TYPE" Type="System.String" Scope="User">
+      <Value Profile="(Default)">MD5</Value>
+    </Setting>
+    <Setting Name="MESSAGE_XSD_FILE_PATH" Type="System.String" Scope="User">
+      <Value Profile="(Default)">D:\bitrepository-message-xml-24\xsd\BitRepositoryMessages.xsd</Value>
+    </Setting>
+    <Setting Name="TOPIC_NAME_DURABLE" Type="System.String" Scope="User">
+      <Value Profile="(Default)">topic://sa-test</Value>
+    </Setting>
+    <Setting Name="MESSAGE_BUS_CONFIGURATION_NAME" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Pilot Test Broker Network A</Value>
+    </Setting>
+    <Setting Name="XML_NAMESPACE" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://bitrepository.org/BitRepositoryMessages.xsd</Value>
+    </Setting>
+    <Setting Name="COLLECTION_DESTINATION" Type="System.String" Scope="User">
+      <Value Profile="(Default)">topic://SA-GENERAL-TOPIC</Value>
+    </Setting>
+    <Setting Name="VALID_FILENAME_REGEX" Type="System.String" Scope="User">
+      <Value Profile="(Default)">^[a-zA-Z_\.\-0-9]+$</Value>
+    </Setting>
+    <Setting Name="URI_SCHEME" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http</Value>
+    </Setting>
+    <Setting Name="CLIENT_QUEUE" Type="System.String" Scope="User">
+      <Value Profile="(Default)">queue://sa_test_client</Value>
+    </Setting>
+    <Setting Name="SSL_BROKER" Type="System.String" Scope="User">
+      <Value Profile="(Default)">failover://(ssl://10.50.32.200:61616?transport.clientcertfilename=D:/client.cer&amp;amp;transport.ClientCertPassword=testen)?initialReconnectDelay=100</Value>
+    </Setting>
+    <Setting Name="MAX_EXECUTING_ITEMS" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">25</Value>
+    </Setting>
+    <Setting Name="COMMON_QUEUE" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ssl://10.50.32.200:61616?transport.clientcertfilename=C:/Downloads/Apache/apache-activemq-5.5.1/conf/broker_cert.cer</Value>
+    </Setting>
+    <Setting Name="IdentificationTimeout" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">120000</Value>
+    </Setting>
+    <Setting Name="OperationTimeout" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">120000</Value>
+    </Setting>
+    <Setting Name="MAX_NUMBER_OF_REQUEST_RETRIES" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">3</Value>
+    </Setting>
+    <Setting Name="PILLAR_IDS" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;SBTape1&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="PORT_RANGE" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;80&lt;/string&gt;
+  &lt;string&gt;8080&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="CHECKSUMPILLAR_IDS" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="TIME_TO_WAIT_AFTER_TIMEOUT" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">10000</Value>
+    </Setting>
+    <Setting Name="ADDRESS_FOR_FILE_TRANSFER" Type="System.String" Scope="User">
+      <Value Profile="(Default)">127.0.0.1</Value>
+    </Setting>
+    <Setting Name="SessionTypePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">c:\SB.txt</Value>
+    </Setting>
+    <Setting Name="TempFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">c:\SBTemp</Value>
+    </Setting>
+    <Setting Name="NewLogPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">c:\NewLogs</Value>
+    </Setting>
+    <Setting Name="OldLogPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">c:\OldLogs</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

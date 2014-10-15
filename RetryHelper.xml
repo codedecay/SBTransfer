@@ -1,0 +1,375 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RetryHelper</name>
+    </assembly>
+    <members>
+        <member name="M:Retry.Extensions.TraceError(System.Diagnostics.TraceSource,System.String)">
+            <summary>
+            Writes an error message to the trace listeners in the System.Diagnostics.TraceSource.Listeners
+            collection using the specified object array and formatting information.
+            </summary>
+            <param name="traceSource">The trace source instance.</param>
+            <param name="message">A composite format string that contains text intermixed with zero or more
+            format items, which correspond to objects in the args array.</param>
+        </member>
+        <member name="M:Retry.Extensions.TraceVerbose(System.Diagnostics.TraceSource,System.String)">
+            <summary>
+            Writes a verbose message to the trace listeners in the System.Diagnostics.TraceSource.Listeners
+            collection using the specified object array and formatting information.
+            </summary>
+            <param name="traceSource">The trace source instance.</param>
+            <param name="message">A composite format string that contains text intermixed with zero or more
+            format items, which correspond to objects in the args array.</param>
+        </member>
+        <member name="M:Retry.Extensions.TraceError(System.Diagnostics.TraceSource,System.String,System.Object[])">
+            <summary>
+            Writes an error message to the trace listeners in the System.Diagnostics.TraceSource.Listeners
+            collection using the specified object array and formatting information.
+            </summary>
+            <param name="traceSource">The trace source instance.</param>
+            <param name="format">A composite format string that contains text intermixed with zero or more
+            format items, which correspond to objects in the args array.</param>
+            <param name="args">An array containing zero or more objects to format.</param>
+        </member>
+        <member name="M:Retry.Extensions.TraceVerbose(System.Diagnostics.TraceSource,System.String,System.Object[])">
+            <summary>
+            Writes a verbose message to the trace listeners in the System.Diagnostics.TraceSource.Listeners
+            collection using the specified object array and formatting information.
+            </summary>
+            <param name="traceSource">The trace source instance.</param>
+            <param name="format">A composite format string that contains text intermixed with zero or more
+            format items, which correspond to objects in the args array.</param>
+            <param name="args">An array containing zero or more objects to format.</param>
+        </member>
+        <member name="M:Retry.Extensions.MakeFunc``1(System.Action,``0)">
+            <summary>
+            Makes an <see cref="T:System.Func`1"/> instance from an <see cref="T:System.Action"/> instance. 
+            The <see cref="T:System.Func`1"/> instance would execute the <see cref="T:System.Action"/> delegate
+            and return the specified value when being called.
+            </summary>
+            <typeparam name="T">The return type of <see cref="T:System.Func`1"/>.</typeparam>
+            <param name="action">The <see cref="T:System.Action"/> instance.</param>
+            <param name="value">The return value of the <see cref="T:System.Func`1"/> instance.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Retry.RetryHelper">
+            <summary>
+            Help retry a delegate until a given condition is met.
+            </summary>
+        </member>
+        <member name="M:Retry.RetryHelper.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref="T:Retry.RetryHelper"/> class with the default trace source name.
+            </summary>
+        </member>
+        <member name="M:Retry.RetryHelper.#ctor(System.Diagnostics.TraceSource)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Retry.RetryHelper"/> class.
+            </summary>
+            <param name="traceSource">The trace source.</param>
+        </member>
+        <member name="M:Retry.RetryHelper.Try``1(System.Func{``0})">
+            <summary>
+            Builds a retry task from the specified delegate.
+            </summary>
+            <typeparam name="T">Type of return value of the delegate.</typeparam>
+            <param name="func">The delegate to try.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Retry.RetryHelper.Try(System.Action)">
+            <summary>
+            Builds a retry task from the specified delegate.
+            </summary>
+            <param name="action">The delegate to try.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Retry.RetryHelper.Instance">
+            <summary>
+            Get the default <see cref="T:Retry.RetryHelper"/> instance which uses the default trace source name.
+            </summary>
+        </member>
+        <member name="P:Retry.RetryHelper.DefaultMaxTryTime">
+            <summary>
+            Gets or sets the default max try time.
+            </summary>
+            <value>
+            The default max try time.
+            </value>
+        </member>
+        <member name="P:Retry.RetryHelper.DefaultTryInterval">
+            <summary>
+            Gets or sets the default try interval.
+            </summary>
+            <value>
+            The default try interval.
+            </value>
+        </member>
+        <member name="P:Retry.RetryHelper.DefaultMaxTryCount">
+            <summary>
+            Gets or sets the default max try count.
+            </summary>
+            <value>
+            The default max try count.
+            </value>
+        </member>
+        <member name="T:Retry.RetryTask">
+            <summary>
+            Represents the task to be retried.
+            </summary>
+        </member>
+        <member name="M:Retry.RetryTask.#ctor(System.Action,System.Diagnostics.TraceSource)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Retry.RetryTask"/> class.
+            </summary>
+            <param name="task">The task.</param>
+            <param name="traceSource">The trace source.</param>
+        </member>
+        <member name="M:Retry.RetryTask.#ctor(System.Action,System.Diagnostics.TraceSource,System.TimeSpan,System.Int32,System.TimeSpan)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Retry.RetryTask"/> class.
+            </summary>
+            <param name="task">The task.</param>
+            <param name="traceSource">The trace source.</param>
+            <param name="maxTryTime">The max try time.</param>
+            <param name="maxTryCount">The max try count.</param>
+            <param name="tryInterval">The try interval.</param>
+        </member>
+        <member name="M:Retry.RetryTask.Until(System.Func{System.Boolean})">
+            <summary>
+              Retries the task until the specified end condition is satisfied, 
+              or the max try time/count is exceeded, or an exception is thrown druing task execution.
+            </summary>
+            <param name = "endCondition">The end condition.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Retry.RetryTask.UntilNoException">
+            <summary>
+              Retries the task until no exception is thrown during the task execution.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Retry.RetryTask.UntilNoException``1">
+            <summary>
+              Retries the task until the specified exception is not thrown during the task execution.
+              Any other exception thrown is re-thrown.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Retry.RetryTask.WithTimeLimit(System.Int32)">
+            <summary>
+              Configures the max try time limit in milliseconds.
+            </summary>
+            <param name = "milliseconds">The max try time limit in milliseconds.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Retry.RetryTask.WithTimeLimit(System.TimeSpan)">
+            <summary>
+              Configures the max try time limit.
+            </summary>
+            <param name = "maxTryTime">The max try time limit.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Retry.RetryTask.WithTryInterval(System.Int32)">
+            <summary>
+              Configures the try interval time in milliseconds.
+            </summary>
+            <param name = "milliseconds">The try interval time in milliseconds.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Retry.RetryTask.WithTryInterval(System.TimeSpan)">
+            <summary>
+              Configures the try interval time.
+            </summary>
+            <param name = "tryInterval">The try interval time.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Retry.RetryTask.WithMaxTryCount(System.Int32)">
+            <summary>
+              Configures the max try count limit.
+            </summary>
+            <param name = "maxTryCount">The max try count.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Retry.RetryTask.OnTimeout(System.Action)">
+            <summary>
+            Configures the action to take when the try action timed out before success. 
+            </summary>
+            <param name="timeoutAction">The action to take on timeout.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Retry.RetryTask.OnFailure(System.Action)">
+            <summary>
+            Configures the action to take after each time the try action fails and before the next try. 
+            </summary>
+            <param name="failureAction">The action to take on failure.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Retry.RetryTask.OnFailure(System.Action{System.Int32})">
+            <summary>
+            Configures the action to take after each time the try action fails and before the next try. 
+            The total count of try that has attempted will be passed as parameters.
+            </summary>
+            <param name="failureAction">The action to take on failure.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Retry.RetryTask.OnSuccess(System.Action)">
+            <summary>
+            Configures the action to take when the try action succeeds.
+            </summary>
+            <param name="successAction">The action to take on success.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Retry.RetryTask`1">
+            <summary>
+            Represents the task to be retried.
+            </summary>
+            <typeparam name="T">The type of result returned by the retried delegate.</typeparam>
+        </member>
+        <member name="M:Retry.RetryTask`1.#ctor(System.Func{`0},System.Diagnostics.TraceSource)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Retry.RetryTask`1"/> class.
+            </summary>
+            <param name="task">The task.</param>
+            <param name="traceSource">The trace source.</param>
+        </member>
+        <member name="M:Retry.RetryTask`1.#ctor(System.Func{`0},System.Diagnostics.TraceSource,System.TimeSpan,System.Int32,System.TimeSpan)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Retry.RetryTask`1"/> class.
+            </summary>
+            <param name="task">The task.</param>
+            <param name="traceSource">The trace source.</param>
+            <param name="maxTryTime">The max try time.</param>
+            <param name="maxTryCount">The max try count.</param>
+            <param name="tryInterval">The try interval.</param>
+        </member>
+        <member name="M:Retry.RetryTask`1.Until(System.Func{`0,System.Boolean})">
+            <summary>
+              Retries the task until the specified end condition is satisfied, 
+              or the max try time/count is exceeded, or an exception is thrown druing task execution.
+              Then returns the value returned by the task.
+            </summary>
+            <param name = "endCondition">The end condition.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Retry.RetryTask`1.Until(System.Func{System.Boolean})">
+            <summary>
+              Retries the task until the specified end condition is satisfied, 
+              or the max try time/count is exceeded, or an exception is thrown druing task execution.
+              Then returns the value returned by the task.
+            </summary>
+            <param name = "endCondition">The end condition.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Retry.RetryTask`1.UntilNoException">
+            <summary>
+              Retries the task until no exception is thrown during the task execution.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Retry.RetryTask`1.UntilNoException``1">
+            <summary>
+              Retries the task until the specified exception is not thrown during the task execution.
+              Any other exception thrown is re-thrown.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Retry.RetryTask`1.WithTimeLimit(System.Int32)">
+            <summary>
+              Configures the max try time limit in milliseconds.
+            </summary>
+            <param name = "milliseconds">The max try time limit in milliseconds.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Retry.RetryTask`1.WithTimeLimit(System.TimeSpan)">
+            <summary>
+              Configures the max try time limit.
+            </summary>
+            <param name = "maxTryTime">The max try time limit.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Retry.RetryTask`1.WithTryInterval(System.Int32)">
+            <summary>
+              Configures the try interval time in milliseconds.
+            </summary>
+            <param name = "milliseconds">The try interval time in milliseconds.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Retry.RetryTask`1.WithTryInterval(System.TimeSpan)">
+            <summary>
+              Configures the try interval time.
+            </summary>
+            <param name = "tryInterval">The try interval time.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Retry.RetryTask`1.WithMaxTryCount(System.Int32)">
+            <summary>
+              Configures the max try count limit.
+            </summary>
+            <param name = "maxTryCount">The max try count.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Retry.RetryTask`1.OnTimeout(System.Action{`0})">
+            <summary>
+            Configures the action to take when the try action timed out before success. 
+            The result of the last failed attempt is passed as parameter to the action.
+            For <see cref="M:Retry.RetryTask`1.UntilNoException"/>, the parameter passed to the action 
+            is always <c>default(T)</c>
+            </summary>
+            <param name="timeoutAction">The action to take on timeout.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Retry.RetryTask`1.OnTimeout(System.Action{`0,System.Int32})">
+            <summary>
+            Configures the action to take when the try action timed out before success. 
+            The result of the last failed attempt and the total count of attempts 
+            are passed as parameters to the action.
+            For <see cref="M:Retry.RetryTask`1.UntilNoException"/>, the parameter passed to the action 
+            is always <c>default(T)</c>
+            </summary>
+            <param name="timeoutAction">The action to take on timeout.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Retry.RetryTask`1.OnFailure(System.Action{`0})">
+            <summary>
+            Configures the action to take after each time the try action fails and before the next try. 
+            The result of the failed try action will be passed as parameter to the action.
+            </summary>
+            <param name="failureAction">The action to take on failure.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Retry.RetryTask`1.OnFailure(System.Action{`0,System.Int32})">
+            <summary>
+            Configures the action to take after each time the try action fails and before the next try. 
+            The result of the failed try action and the total count of attempts that 
+            have been performed are passed as parameters to the action.
+            </summary>
+            <param name="failureAction">The action to take on failure.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Retry.RetryTask`1.OnSuccess(System.Action{`0})">
+            <summary>
+            Configures the action to take when the try action succeeds.
+            The result of the successful attempt is passed as parameter to the action.
+            </summary>
+            <param name="successAction">The action to take on success.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Retry.RetryTask`1.OnSuccess(System.Action{`0,System.Int32})">
+            <summary>
+            Configures the action to take when the try action succeeds.
+            The result of the successful attempt and the total count of attempts 
+            are passed as parameters to the action. This count includes the 
+            final successful one.
+            </summary>
+            <param name="successAction">The action to take on success.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Retry.RetryTask`1.Clone">
+            <summary>
+            Clones this instance.
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

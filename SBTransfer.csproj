@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <!--Project was exported from assembly: D:\Data\SB\SBTransfer.exe-->
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{34B9D6E7-74B3-4DEF-8884-969B076C19E1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AssemblyName>SBTransfer</AssemblyName>
+    <RootNamespace>SBTransfer</RootNamespace>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.0</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClientAPI, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Data\bitmagasinet\BMPClient\ClientClasses\bin\Release\ClientAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DefaultSettings.cs" />
+    <Compile Include="EventIDType.cs" />
+    <Compile Include="CategoryType.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="RemoteStorageBitMag.cs" />
+    <Compile Include="SA_Reflect.cs" />
+    <Compile Include="SA_NotificationCollection`1.cs" />
+    <Compile Include="SA_Serializer.cs" />
+    <Compile Include="Form_Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="Setup.cs" />
+    <Compile Include="SA_StorageWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SA_DataObject.cs" />
+    <Compile Include="SA_LoggedDataObject.cs" />
+    <Compile Include="SA_BackgroundDataObject.cs" />
+    <Compile Include="IContentCarrier.cs" />
+    <Compile Include="Storage.cs" />
+    <Compile Include="RemoteStorageSB.cs" />
+    <Compile Include="Form_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EventProcessor.cs" />
+    <Compile Include="Session.cs" />
+    <Compile Include="SA_Status.cs" />
+    <Compile Include="SA_Log.cs" />
+    <Compile Include="SA_LogEntry.cs" />
+    <Compile Include="SA_ProgressStatus.cs" />
+    <Compile Include="LocalStorage.cs" />
+    <Compile Include="AppEvents.cs" />
+    <Compile Include="UILabelsAttribute.cs" />
+    <Compile Include="Form_Info.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SessionType.cs" />
+    <Compile Include="Notification.cs" />
+    <Compile Include="JobProvider.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="SA_SessionStatus.cs" />
+    <Compile Include="SA_JobStatus.cs" />
+    <Compile Include="SA_ProviderStatus.cs" />
+    <Compile Include="SA_StorageStatus.cs" />
+    <Compile Include="LocalFileJobProvider.cs" />
+    <Compile Include="PrefixType.cs" />
+    <Compile Include="OutputForm.cs" />
+    <Compile Include="SuffixType.cs" />
+    <Compile Include="SA_Convert.cs" />
+    <Compile Include="RetryDelegate.cs" />
+    <Compile Include="Job.cs" />
+    <Compile Include="FileType.cs" />
+    <Compile Include="ProviderInput.cs" />
+    <Compile Include="SessionStatus.cs" />
+    <Compile Include="ProviderStatus.cs" />
+    <Compile Include="StorageStatus.cs" />
+    <Compile Include="JobStatus.cs" />
+    <Compile Include="RemoteStorageSSH.cs" />
+    <Compile Include="Properties\Resources.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Form_Info.resx" />
+    <EmbeddedResource Include="Form_Main.resx" />
+    <EmbeddedResource Include="Form_Settings.resx" />
+    <EmbeddedResource Include="FormLogViewer.resx" />
+    <EmbeddedResource Include="Properties\Resources.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Apache.NMS.ActiveMQ.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Apache.NMS.ActiveMQ.pdb" />
+    <Content Include="Apache.NMS.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Apache.NMS.pdb" />
+    <Content Include="bitmagsettings.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Castle.Core.dll" />
+    <Content Include="Castle.Core.xml" />
+    <Content Include="Castle.Windsor.dll" />
+    <Content Include="Castle.Windsor.xml" />
+    <Content Include="ClientAPI.dll" />
+    <Content Include="ClientAPI.pdb" />
+    <Content Include="log4net.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="log4net.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RetryHelper.dll" />
+    <Content Include="RetryHelper.xml" />
+    <Content Include="System.Data.SQLite.dll" />
+    <Content Include="System.Data.SQLite.Linq.dll" />
+    <Content Include="WebdavTransfer.dll" />
+    <Content Include="WebdavTransfer.pdb" />
+    <Content Include="x64\SQLite.Interop.dll" />
+    <Content Include="x86\SQLite.Interop.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="ClientAPI.dll.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>
